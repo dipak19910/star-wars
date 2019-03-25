@@ -1,14 +1,14 @@
 import { connect } from 'react-redux'
 import React from "react"
 import "../App.css"
-import {setUserInfos} from "../actions/login"
+import {setLoggedInUser} from "../actions/ensureLoggedIn"
 import { bindActionCreators } from "redux";
 import {getItem} from "../storage"
 class Login extends React.Component {
    componentDidMount(){
     let user= getItem('user')
     if(user){
-      
+      this.props.setLoggedInUser('user',user)
     }
    }
     render(){
@@ -28,7 +28,7 @@ const mapStateToProps = state => {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        setUserInfos
+      setLoggedInUser
     }, dispatch);
   }
 export default connect(mapStateToProps,mapDispatchToProps)(Login)

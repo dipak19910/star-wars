@@ -5,7 +5,7 @@ const initialState={
 export default function login(state =initialState, action) {
     switch (action.type) {
       case SET_LOGGED_IN_USER:
-      return {...state,user}
+      return {...state,[action.payload.key]:action.payload.value}
       default:
         return state
     }
