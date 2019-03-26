@@ -179,8 +179,16 @@ li > a{
   overflow-y: auto;
   height: 57vh;
 }
+.flex-container-no-style {
+  background-color:antiquewhite;
+}
 
 .flex-container > div{
+  padding: 20px;
+  margin: 10px;
+  background-color: aqua;
+}
+.flex-container-no-style > div{
   padding: 20px;
   margin: 10px;
   background-color: aqua;
