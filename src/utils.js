@@ -8,10 +8,10 @@ export const isJSONObject=(value)=>{
   }
 export function  parseJSON(value) {
         try{
-            return JSON.parse(value)
-        }finally{
-            return value
+            value= JSON.parse(value)
+        }catch(e){
         }
+        return value
 }
 
 export function  stringifyJSON(value) {

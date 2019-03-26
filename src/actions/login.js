@@ -1,4 +1,4 @@
-import {VALIDATE_USER,SET_USER_INFO} from "../constants/login"
+import {VALIDATE_USER,SET_USER_INFO, SET_LOGGED_USER_INFO} from "../constants/login"
 export function validateUser(payload){
     return {
         type:VALIDATE_USER,
@@ -13,5 +13,12 @@ export function setUserInfos(event){
             key:event.target.id,
             value:event.target.value
         }
+    }
+}
+
+export function setLoggedUserInfos(payload){
+    return {
+        type:SET_LOGGED_USER_INFO,
+        payload
     }
 }

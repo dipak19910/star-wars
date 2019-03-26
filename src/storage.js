@@ -1,7 +1,11 @@
 import {parseJSON,stringifyJSON} from "./utils"
 export function getItem(key) {
     let item = localStorage.getItem(key)
-    return parseJSON(item)   
+    debugger
+    item=  parseJSON(item)   
+    console.log(item)
+    return item
+    
 }
 export function setItem(key,value){
     localStorage.setItem(key,stringifyJSON(value))

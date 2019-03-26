@@ -172,3 +172,16 @@ li {
 li > a{
   text-decoration: none;
 }
+.flex-container {
+ height: 100px;
+  background-color:antiquewhite;
+  max-width: 25vw;
+  overflow-y: auto;
+  height: 57vh;
+}
+
+.flex-container > div{
+  padding: 20px;
+  margin: 10px;
+  background-color: aqua;
+}
