@@ -1,29 +1,58 @@
-import { connect } from 'react-redux'
 import React from 'react'
 import '../App.css'
 import { Link } from 'react-router-dom'
+import {UserContext} from "../context/userContext"
+//  class Header extends React.Component {
+//   render () {
+//     debugger
+//     // let context = this.context;
 
-class Header extends React.Component {
-  render () {
-    return (
-      <div>
-        {' '}
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/star-wars">Star War Users</Link>
-          </li>
-          {getUser(this.props)}
-        </ul>
-      </div>
-    )
-  }
+//     return (
+//       <UserContext.Consumer>
+//         {(props)=>{
+//           console.log(props);
+//           return( <ul>
+//           <li>
+//             <Link to="/">Home</Link>
+//           </li>
+//           <li>
+//             <Link to="/all-users">All Users</Link>
+//           </li>
+//           <li>
+//             <Link to="/about">About</Link>
+//           </li>
+//           {getUser(props)}
+//         </ul>)}
+//         }
+       
+//       </UserContext.Consumer>
+//     )
+//   }
+// }
+
+function Header(){
+  return (
+    <UserContext.Consumer>
+      {(value)=>{
+        return( <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/all-users">All Users</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        {getUser(value)}
+      </ul>)}
+      }
+     
+    </UserContext.Consumer>
+  )
 }
-
-function getUser (props) {
-  if (props.user) {
+function getUser (value={}) {
+  if (value.user) {
     return (
       <li>
         <Link to="/sign-out">Sign Out</Link>
@@ -31,17 +60,19 @@ function getUser (props) {
     )
   } else {
     return (
-      <li>
+     <React.Fragment>
+
+     <li>
         <Link to="/sign-in">Sign In</Link>
       </li>
+      <li>
+        <Link to="/register">Sign Up</Link>
+      </li>
+     </React.Fragment>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.login.userInfos
-  }
-}
+// Header.contextType = UserContext;
 
-export default connect(mapStateToProps)(Header)
+export default Header

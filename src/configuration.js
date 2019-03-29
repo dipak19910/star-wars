@@ -1,9 +1,5 @@
 
 
-export const SERVER_URL= "https://swapi.co/api/";
+export const SERVER_URL= "https://api.prontoitlabs.com/api/v1/user";
 
 
-
-export const TIMER_OF_QUERY_LIMIT=10
-
-export const MAX_QUERY_LIMIT=5
